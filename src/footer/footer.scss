@@ -1,0 +1,98 @@
+@use "../global" as *;
+
+.footer {
+	background-color: $dark-blue;
+
+	&__container {
+		@include dflex(column);
+		gap: 50px;
+		padding: 50px 0;
+	}
+
+	&__links {
+		@include dflex(column);
+		gap: 30px;
+	}
+
+	&__logo {
+		margin-bottom: 10px;
+
+		path:first-child {
+			fill: #fff;
+		}
+	}
+
+	&__link {
+		font-size: 16px;
+		color: $white;
+		letter-spacing: 1.3px;
+	}
+
+	&__icons {
+		@include dflex(row);
+		gap: 40px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.footer {
+		position: relative;
+
+		::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			height: 2px;
+			background: $white;
+			opacity: 0;
+			transition: opacity 0.3s;
+		}
+
+		&__logo {
+			display: block;
+			margin-bottom: 0;
+			margin-right: 20px;
+		}
+
+		&__container {
+			justify-content: space-between;
+			padding: 30px 0;
+		}
+
+		&__links {
+			gap: 45px;
+		}
+
+		&__container,
+		&__links {
+			flex-direction: row;
+		}
+
+		&__link {
+			transition: color 0.3s ease;
+
+			&:hover {
+				color: $light-red;
+			}
+		}
+
+		&__icon {
+			cursor: pointer;
+
+			path {
+				transition: fill 0.3s ease;
+			}
+
+			&:hover path {
+				fill: $light-red;
+			}
+		}
+
+		&__link:hover::after,
+		&__icon:hover::after {
+			opacity: 1;
+		}
+	}
+}

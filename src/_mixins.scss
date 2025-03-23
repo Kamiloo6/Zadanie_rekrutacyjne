@@ -1,0 +1,6 @@
+@mixin dflex($direct) {
+	display: flex;
+	flex-direction: $direct;
+	justify-content: center;
+	align-items: center;
+}

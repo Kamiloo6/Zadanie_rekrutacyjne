@@ -1,0 +1,66 @@
+@use "../global" as *;
+
+.modal {
+	@include dflex(column);
+	gap: 60px;
+	position: relative;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 10px;
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		max-width: 400px;
+	}
+
+	&__title {
+		font-size: 25px;
+		color: $dark-blue;
+		text-align: center;
+		line-height: 1.5;
+		letter-spacing: 1px;
+		text-align: left;
+	}
+
+	&__text {
+		color: $gray;
+		text-align: center;
+		line-height: 1.7;
+		font-size: 16px;
+		max-width: 550px;
+		text-align: left;
+	}
+
+	&__overlay {
+		@include dflex(row);
+		position: fixed;
+		top: 0px;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		background-color: rgba(17, 17, 17, 0.842);
+		z-index: 99;
+	}
+
+	&__close-button {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		padding: 10px;
+		background-color: inherit;
+	}
+
+	&__icon-close {
+		path {
+			fill: black;
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.modal {
+		flex-direction: row;
+	}
+}
